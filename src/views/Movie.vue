@@ -1,13 +1,93 @@
 <template>
-  <p class="title is-1">Movie</p>
+  <div>
+    <p class="title">{{ title }}</p>
+    <div class="columns is-multiline">
+      <div class="column is-3" v-for="(movie, index) in movies" :key="index">
+        <div class="card hvr-underline-from-center">
+          <div class="card-image">
+            <figure class="image is-3by4">
+              <img :src="movie.images.small" :alt="movie.title">
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="media">
+              <div class="media-content has-text-centered">
+                <p class="heading">{{ movie.title }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-export default {
+import axios from 'axios'
 
+export default {
+  data() {
+    return {
+      title: 'Movie in theatre',
+      rawResponse: undefined,
+      movies: undefined
+    }
+  },
+  methods: {
+    getMoviesInTheatre() {
+      axios
+        .get('/movie/in_theaters?city=beijing')
+        .then(res => {
+          this.rawResponse = res.data
+          this.movies = this.rawResponse.subjects
+        })
+        .catch(err => {
+          console.log('Axios get error ' + err)
+        })
+    }
+  },
+  mounted() {
+    this.getMoviesInTheatre()
+  }
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+.card {
+  height: 100%;
+}
 
+.hvr-underline-from-center {
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  overflow: hidden;
+}
+.hvr-underline-from-center:before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  background: #209cee;
+  height: 2px;
+  -webkit-transition-property: left, right;
+  transition-property: left, right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-underline-from-center:hover:before,
+.hvr-underline-from-center:focus:before,
+.hvr-underline-from-center:active:before {
+  left: 0;
+  right: 0;
+}
 </style>
