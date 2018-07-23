@@ -1,6 +1,12 @@
 <template>
   <div>
-    <p class="title">{{ title }}</p>
+    <p class="title is-1">{{ title }}</p>
+    <div class="is-center" v-if="loading">
+      <div class="la-square-jelly-box la-3x">
+        <div></div>
+        <div></div>
+      </div>
+    </div>
     <div class="columns is-multiline">
       <div class="column is-3" v-for="(movie, index) in movies" :key="index">
         <div class="card hvr-underline-from-center">
@@ -29,6 +35,7 @@ export default {
   data() {
     return {
       title: 'Movie in theatre',
+      loading: true,
       rawResponse: undefined,
       movies: undefined
     }
@@ -36,13 +43,20 @@ export default {
   methods: {
     getMoviesInTheatre() {
       axios
-        .get('/movie/in_theaters?city=beijing')
+        .get('/movie/in_theaters', {
+          params: {
+            city: 'shanghai'
+          }
+        })
         .then(res => {
           this.rawResponse = res.data
           this.movies = this.rawResponse.subjects
         })
         .catch(err => {
           console.log('Axios get error ' + err)
+        })
+        .finally(() => {
+          this.loading = false
         })
     }
   },
@@ -75,7 +89,7 @@ export default {
   left: 50%;
   right: 50%;
   bottom: 0;
-  background: #209cee;
+  background: #ff3860;
   height: 2px;
   -webkit-transition-property: left, right;
   transition-property: left, right;
@@ -89,5 +103,14 @@ export default {
 .hvr-underline-from-center:active:before {
   left: 0;
   right: 0;
+}
+
+.is-center {
+  height: 82vh;
+  padding: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
 }
 </style>
