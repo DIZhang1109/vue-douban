@@ -1,29 +1,53 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div class="columns is-gapless is-fullheight has-background-grey-lighter">
+      <div class="column is-3 has-background-white">
+        <app-navbar></app-navbar>
+      </div>
+      <div class="column is-9">
+        <section class="section">
+          <div class="columns">
+            <div class="column is-10 is-offset-1">
+              <router-view/>
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
-    <router-view/>
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+<script>
+import AppNavbar from './components/Navbar'
+
+export default {
+  name: 'app',
+  components: {
+    AppNavbar
   }
+}
+</script>
+
+<style lang="scss" scoped>
+.columns.is-fullheight {
+  min-height: 100vh;
+  max-height: 100vh;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  .column {
+    overflow-y: auto;
+  }
+}
+
+.has-background-white {
+  background-color: hsl(0, 0%, 100%);
+}
+
+.column.is-3 {
+  -webkit-box-shadow: 2px 0px 6px 2px rgba(194, 194, 194, 0.4);
+  -moz-box-shadow: 2px 0px 6px 2px rgba(194, 194, 194, 0.4);
+  box-shadow: 2px 0px 6px 2px rgba(194, 194, 194, 0.4);
 }
 </style>
