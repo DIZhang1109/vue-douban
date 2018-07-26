@@ -10,18 +10,20 @@
     <div class="columns is-multiline">
       <div class="column is-3" v-for="(movie, index) in movies" :key="index">
         <div class="card hvr-underline-from-center">
-          <div class="card-image">
-            <figure class="image is-3by4">
-              <img :src="movie.images.small" :alt="movie.title">
-            </figure>
-          </div>
-          <div class="card-content">
-            <div class="media">
-              <div class="media-content has-text-centered">
-                <p class="heading">{{ movie.title }}</p>
+          <router-link :to="'/movie/' + movie.id">
+            <div class="card-image">
+              <figure class="image is-3by4">
+                <img :src="movie.images.small" :alt="movie.title">
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="media">
+                <div class="media-content has-text-centered">
+                  <p class="heading">{{ movie.title }}</p>
+                </div>
               </div>
             </div>
-          </div>
+          </router-link>
         </div>
       </div>
     </div>
