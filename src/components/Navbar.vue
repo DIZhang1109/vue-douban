@@ -55,7 +55,7 @@ export default {
 <style lang="scss" scoped>
 a .title {
   &:hover {
-    color: hsl(348, 100%, 61%);
+    color: #ff60a2;
   }
 }
 

@@ -1,7 +1,8 @@
 @charset "utf-8";
 
 // Import a Google Font
-@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+@import url('https://fonts.googleapis.com/css?family=Exo');
+@import url('https://fonts.googleapis.com/earlyaccess/notosansscsliced.css');
 
 // Set your brand colors
 // $purple: #8A4D76;
@@ -10,11 +11,12 @@
 // $beige-light: #D0D1CD;
 // $beige-lighter: #EFF0EB;
 $cyan: #209cee;
-$red: #ff3860;
+$pink: #ff60a2;
 $black: #0a0a0a;
 
 // Update Bulma's global variables
-$family-sans-serif: "Nunito", sans-serif;
+$family-sans-serif: "Exo", "Noto Sans SC Sliced", sans-serif;
+// $family-serif: "cwTeXKai", serif;
 // $grey-dark: $brown;
 // $grey-light: $beige-light;
 // $primary: $purple;
@@ -32,7 +34,7 @@ $text: $cyan;
 $title-color: $cyan;
 $subtitle-color: $cyan;
 
-$menu-item-hover-color: $red;
+$menu-item-hover-color: $pink;
 $menu-item-hover-background-color: transparent;
 $menu-item-active-color: $black;
 $menu-item-active-background-color: transparent;

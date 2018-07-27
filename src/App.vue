@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="columns is-gapless is-fullheight has-background-grey-lighter">
+    <div class="columns is-gapless is-fullheight has-gradient-background">
       <div class="column is-3 has-background-white">
         <app-navbar></app-navbar>
       </div>
@@ -39,6 +39,11 @@ export default {
   .column {
     overflow-y: auto;
   }
+}
+
+.has-gradient-background {
+  background-color: #b8c6db;
+  background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%);
 }
 
 .has-background-white {
