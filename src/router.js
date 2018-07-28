@@ -30,7 +30,8 @@ export default new Router({
       component: Music
     },
     {
-      path: '/movie/:id',
+      path: '/movie/subject/:id',
+      name: 'movie-introduction',
       component: MovieIntro
     }
   ],

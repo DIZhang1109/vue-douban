@@ -13,7 +13,7 @@
       <br>
       <ul class="menu-list">
         <li v-for="(category, index) in categories" :key="index">
-          <router-link :to="category.name.toLowerCase()" class="hvr-forward has-text-left" exact>
+          <router-link :to="'/' + category.name.toLowerCase()" class="hvr-forward has-text-left">
             <span class="icon">
               <i :class="category.style"></i>
             </span>
