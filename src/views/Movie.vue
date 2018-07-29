@@ -91,7 +91,7 @@ export default {
   left: 50%;
   right: 50%;
   bottom: 0;
-  background: #ff3860;
+  background: #ff60a2;
   height: 2px;
   -webkit-transition-property: left, right;
   transition-property: left, right;
