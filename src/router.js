@@ -32,7 +32,8 @@ export default new Router({
     {
       path: '/movie/subject/:id',
       name: 'movie-introduction',
-      component: MovieIntro
+      component: MovieIntro,
+      props: true
     }
   ],
   linkActiveClass: 'is-active'
