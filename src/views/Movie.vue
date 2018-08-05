@@ -46,7 +46,7 @@ export default {
     })
   },
   mounted() {
-    this.$store.dispatch('getMoviesInTheatre')
+    this.$store.dispatch('moviesInTheatre/getMoviesInTheatre')
   }
 }
 </script>
