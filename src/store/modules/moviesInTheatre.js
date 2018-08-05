@@ -6,7 +6,7 @@ const state = {
 }
 
 const mutations = {
-  setMovieData: (state, {
+  setMoviesData: (state, {
     data
   }) => {
     state.movies = data
@@ -27,12 +27,12 @@ const actions = {
         }
       })
       .then(res => {
-        commit('setMovieData', {
+        commit('setMoviesData', {
           data: res.data.subjects
         })
       })
       .catch(err => {
-        console.log('Axios get error ' + err)
+        console.log(`Axios get error ${err}`)
       })
       .finally(() => {
         commit('finishLoading')
