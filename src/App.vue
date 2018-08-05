@@ -22,9 +22,7 @@ import AppNavbar from './components/Navbar'
 
 export default {
   name: 'app',
-  components: {
-    AppNavbar
-  }
+  components: { AppNavbar }
 }
 </script>
 
