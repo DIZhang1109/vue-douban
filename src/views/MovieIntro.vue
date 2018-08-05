@@ -32,9 +32,9 @@
           <div class="media-content">
             <div class="content">
               <p>
-                <strong>Director: </strong>{{ getAllDirectors }}
+                <strong>Director: </strong>{{ directors }}
                 <br>
-                <strong>Actor: </strong> {{ getAllCasts }}
+                <strong>Actor: </strong> {{ casts }}
                 <br>
                 <strong>Year: </strong> {{ movie.year }}
                 <br>
@@ -52,43 +52,25 @@
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
+import { mapState, mapGetters } from 'vuex'
 import Loading from '../components/Loading'
 
 export default {
   components: { Loading },
   props: ['id'],
-  data() {
-    return {
-      loading: true,
-      movie: undefined
-    }
-  },
-  methods: {
-    getMovie(subjectId) {
-      axios
-        .get('/movie/subject/' + subjectId)
-        .then(res => {
-          this.movie = res.data
-        })
-        .catch(err => {
-          console.log(`Axios get error ${err}`)
-        })
-        .finally(() => {
-          this.loading = false
-        })
-    }
-  },
   computed: {
-    getAllDirectors() {
-      return this.movie.directors.map(it => it.name).join(' ')
-    },
-    getAllCasts() {
-      return this.movie.casts.map(it => it.name).join(' ')
-    }
+    ...mapState({
+      loading: state => state.movieIntro.loading,
+      movie: state => state.movieIntro.movie
+    }),
+    ...mapGetters('movieIntro', {
+      directors: 'getAllDirectors',
+      casts: 'getAllCasts'
+    })
   },
   mounted() {
-    this.getMovie(this.id)
+    this.$store.dispatch('movieIntro/getMovie', this.id)
   }
 }
 </script>
