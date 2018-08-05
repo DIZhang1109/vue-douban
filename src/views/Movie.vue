@@ -31,39 +31,22 @@
 </template>
 
 <script>
-import axios from 'axios'
+import { mapState } from 'vuex'
 
 export default {
   data() {
     return {
-      title: 'Movie in theatre',
-      loading: true,
-      rawResponse: undefined,
-      movies: undefined
+      title: 'Movie in theatre'
     }
   },
-  methods: {
-    getMoviesInTheatre() {
-      axios
-        .get('/movie/in_theaters', {
-          params: {
-            city: 'shanghai'
-          }
-        })
-        .then(res => {
-          this.rawResponse = res.data
-          this.movies = this.rawResponse.subjects
-        })
-        .catch(err => {
-          console.log('Axios get error ' + err)
-        })
-        .finally(() => {
-          this.loading = false
-        })
-    }
+  computed: {
+    ...mapState({
+      loading: state => state.moviesInTheatre.loading,
+      movies: state => state.moviesInTheatre.movies
+    })
   },
   mounted() {
-    this.getMoviesInTheatre()
+    this.$store.dispatch('getMoviesInTheatre')
   }
 }
 </script>
