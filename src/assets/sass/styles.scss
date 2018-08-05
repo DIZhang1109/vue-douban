@@ -39,5 +39,14 @@ $menu-item-hover-background-color: transparent;
 $menu-item-active-color: $black;
 $menu-item-active-background-color: transparent;
 
+.is-center {
+    height: 82vh;
+    padding: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+};
+
 // Import only what you need from Bulma
 @import "../../../node_modules/bulma";

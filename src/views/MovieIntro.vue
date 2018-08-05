@@ -52,7 +52,6 @@
 </template>
 
 <script>
-// import axios from 'axios'
 import { mapState, mapGetters } from 'vuex'
 import Loading from '../components/Loading'
 
@@ -74,14 +73,3 @@ export default {
   }
 }
 </script>
-
-<style>
-.is-center {
-  height: 82vh;
-  padding: 0;
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
-}
-</style>

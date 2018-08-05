@@ -88,13 +88,4 @@ export default {
   left: 0;
   right: 0;
 }
-
-.is-center {
-  height: 82vh;
-  padding: 0;
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
-}
 </style>
