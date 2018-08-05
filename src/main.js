@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store/index'
 import './assets/sass/styles.scss'
-import '../node_modules/load-awesome/css/square-jelly-box.min.css'
+import '../node_modules/load-awesome/css/pacman.min.css'
 
 Vue.config.productionTip = false
 
