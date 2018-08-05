@@ -2,10 +2,7 @@
   <div>
     <p class="title is-1">{{ title }}</p>
     <div class="is-center" v-if="loading">
-      <div class="la-square-jelly-box la-3x">
-        <div></div>
-        <div></div>
-      </div>
+      <loading></loading>
     </div>
     <div class="columns is-multiline">
       <div class="column is-3" v-for="(movie, index) in movies" :key="index">
@@ -32,8 +29,10 @@
 
 <script>
 import { mapState } from 'vuex'
+import Loading from '../components/Loading'
 
 export default {
+  components: { Loading },
   data() {
     return {
       title: 'Movie in theatre'

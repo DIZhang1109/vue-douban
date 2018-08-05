@@ -1,6 +1,9 @@
 <template>
-  <transition name="slide-fade">
-    <div>
+  <div>
+    <div class="is-center" v-if="loading">
+      <loading></loading>
+    </div>
+    <div v-else>
       <p class="title is-1">{{ movie.title }}</p>
       <div class="box">
         <article class="media">
@@ -45,13 +48,15 @@
         </article>
       </div>
     </div>
-  </transition>
+  </div>
 </template>
 
 <script>
 import axios from 'axios'
+import Loading from '../components/Loading'
 
 export default {
+  components: { Loading },
   props: ['id'],
   data() {
     return {
@@ -89,12 +94,12 @@ export default {
 </script>
 
 <style>
-.slide-fade-enter-active {
-  transition: all 1s ease;
-}
-
-.slide-fade-enter {
-  transform: translateX(50px);
-  opacity: 0;
+.is-center {
+  height: 82vh;
+  padding: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
 }
 </style>
