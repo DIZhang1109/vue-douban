@@ -7,7 +7,7 @@
     <div class="columns is-multiline">
       <div class="column is-3" v-for="(movie, index) in movies" :key="index">
         <div class="card hvr-underline-from-center">
-          <router-link :to="'/movie/subject/' + movie.id">
+          <router-link :to="'/movies/subject/' + movie.id">
             <div class="card-image">
               <figure class="image is-3by4">
                 <img :src="movie.images.small" :alt="movie.title">

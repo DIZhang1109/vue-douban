@@ -13,7 +13,7 @@
       <br>
       <ul class="menu-list">
         <li v-for="(category, index) in categories" :key="index">
-          <router-link :to="'/' + category.name.toLowerCase()" class="hvr-forward has-text-left">
+          <router-link :to="'/' + category.href" class="hvr-forward has-text-left">
             <span class="icon">
               <i :class="category.style"></i>
             </span>
@@ -35,16 +35,19 @@ export default {
       subtitle: 'A Vuejs Douban Website',
       categories: [
         {
-          name: 'Book',
-          style: 'fas fa-book'
+          name: 'In Theatre',
+          style: 'fas fa-fire',
+          href: 'movies_in_theatre'
         },
         {
-          name: 'Movie',
-          style: 'fas fa-film'
+          name: 'Coming Soon',
+          style: 'fas fa-film',
+          href: 'movies_coming_soon'
         },
         {
-          name: 'Music',
-          style: 'fas fa-music'
+          name: 'Movie Star',
+          style: 'fas fa-users',
+          href: 'movies_celebrities'
         }
       ]
     }
