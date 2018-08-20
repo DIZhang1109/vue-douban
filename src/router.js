@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-import Movie from './views/Movie.vue'
+import MoviesInTheatre from './views/MoviesInTheatre.vue'
 import MovieIntro from './views/MovieIntro.vue'
 
 Vue.use(Router)
@@ -15,8 +15,8 @@ export default new Router({
     },
     {
       path: '/movies_in_theatre',
-      name: 'movie',
-      component: Movie
+      name: 'movies_in_theatre',
+      component: MoviesInTheatre
     },
     {
       path: '/movies/subject/:id',
